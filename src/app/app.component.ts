@@ -15,13 +15,15 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForbiddenComponent } from '@core/components/forbidden/forbidden.component';
 import { AlphaValueDirective } from '@shared/directives/alpha-value.directive';
 import { ConvertNumbersToEnglishDirective } from '@shared/directives/convert-numbers-to-english.directive';
+import {MatIconModule} from '@angular/material/icon';
+import { MatIconDirective } from '@shared/directives/mat-icon.directive';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, MatSnackBarModule, MatSlideToggleModule, BaseChartDirective, LazyLoadImageModule,
     RouterLink, SeperateNumberPipe, JalaliDatePipe, JalaliTimePipe, PersianNumbersPipe, NumberValueDirective,
-    ForbiddenComponent, AlphaValueDirective, ConvertNumbersToEnglishDirective
+    ForbiddenComponent, AlphaValueDirective, ConvertNumbersToEnglishDirective, MatIconModule, MatIconDirective
   ],
   providers: [{ provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
   templateUrl: './app.component.html',

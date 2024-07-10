@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
 
     })
     // console.log('config', this.configService?['timeOut']);
+    console.log('API_URL', this.apiUrl);
     console.log('config', this.configService.config);
   }
   ngOnInit(): void {

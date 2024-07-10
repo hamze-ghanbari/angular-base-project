@@ -6,7 +6,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { API_URL } from '@core/tokens/tokens';
-import { environment } from '../environments/environment.development';
 import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { catcheErrorInterceptor } from '@core/interceptors/DI-based/catch-error.interceptor';
 import { AuthorizationInterceptor } from '@core/interceptors/DI-based/authorization.interceptor';
@@ -14,6 +13,7 @@ import { cacheApiInterceptor } from '@core/interceptors/DI-based/cache-api.inter
 import { offlineModeInterceptor } from '@core/interceptors/functional/offline-mode.interceptor';
 import { timeOutInterceptor } from '@core/interceptors/functional/time-out.interceptor';
 import { tap } from 'rxjs/operators';
+import { environment } from '@environments';
 
 export function appCongifService(){
   return () =>  new ConfigService();

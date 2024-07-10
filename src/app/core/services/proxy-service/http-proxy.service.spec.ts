@@ -3,8 +3,8 @@ import { HttpProxyService } from './http-proxy.service';
 import { httpClientMock, makeDependecy } from '@shared/spec/MockDependencies';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { API_URL } from '@core/tokens/tokens';
-import { environment } from '../../../../environments/environment.development';
 import { Observable, of } from 'rxjs';
+import { environment } from '@environments';
 
 describe('HttpProxyService', () => {
   let service: HttpProxyService;

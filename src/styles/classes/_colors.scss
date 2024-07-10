@@ -1,0 +1,16 @@
+@use '../abstracts/colors' as *;
+
+// ? loop over colors maps and create class from it
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+        //   * Color Classes 
+          .#{"" + $color}__#{"" + $shade} {
+                  color: #{"" + $value}!important;
+          }
+
+        //   * Background Classes
+          .bg-#{"" + $color}__#{"" + $shade} {
+                  background-color: #{"" + $value}!important;
+          }
+  }
+}

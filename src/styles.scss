@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./styles/abstracts/typography" as *;
+@use "./styles/abstracts/colors" as *;
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f7f7f7;
+  font-size: 15px !important;
+  @include ESTEDAD_REGULAR;
+}
+
+div,
+li,
+strong,
+input,
+small,
+button,
+label,
+textarea,
+select,
+select option,
+mat-card-subtitle,
+mat-card-title,
+mat-hint,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+pre,
+a,
+mat-card-title {
+  text-align: right;
+  word-wrap: anywhere;
+  color: setcolor(primary);
+}
+
+* {
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+  box-sizing: border-box;
+}
+
+::placeholder {
+  @include ESTEDAD_REGULAR;
+}
+

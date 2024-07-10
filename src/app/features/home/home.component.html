@@ -1,0 +1,76 @@
+<p>home works!</p>
+<button type="button" (click)="snack()" #temp>click me</button>
+
+<form [formGroup]="form" (ngSubmit)="formSubmit()">
+<input type="text" formControlName="name" placeholder="name" />
+@if(form.controls['name'].invalid && form.controls['name'].hasError('alpha') && (form.controls['name'].dirty || form.controls['name'].touched)){
+    <span>name error alpha</span>
+    }
+    <input type="text" formControlName="lastName" placeholder="lastName" />
+    @if(form.controls['lastName'].invalid && form.controls['lastName'].hasError('alpha') && (form.controls['lastName'].dirty || form.controls['lastName'].touched)){
+        <span>lastName error alpha</span>
+        }
+    
+    <input type="text" formControlName="nationalCode" placeholder="nationalCode" />
+    @if(form.controls['nationalCode'].invalid && form.controls['nationalCode'].hasError('nationalCode') && (form.controls['nationalCode'].dirty || form.controls['nationalCode'].touched)){
+        <span>nationalCodeError</span>
+        }
+
+        <input type="text" formControlName="age" placeholder="age" />
+        @if(form.controls['age'].invalid && form.controls['age'].hasError('number') && (form.controls['age'].dirty || form.controls['age'].touched)){
+            <span>age error</span>
+            }
+<button type="submit">submit form</button>
+</form>
+<!-- <button type="button" (click)="snackE()">click me error</button>
+
+<input type="text" placeholder="without dismiss" />
+<input type="text" appDismissEvent placeholder="with dismiss" />
+
+    <div style="width: 400px;height: 200px;border: 1px solid gray;" (mouseenter)="isHover = true" (mouseleave)="isHover = false" [@hoverBox]="isHover ? 'hover' : 'blur'"></div> -->
+
+    <button type="button" (click)="addToList()">add to list</button>
+<!-- 
+    <table mat-table [dataSource]="list" class="mat-elevation-z8" [@listShake]="list.length">
+
+        <ng-container matColumnDef="title" >
+          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <td mat-cell *matCellDef="let element" (click)="removeFromList(element.title)"> {{element.title}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>  -->
+
+      <div style="display: flex; flex-direction: row; align-items: center;">
+
+        
+        <div [@listFade]="list.length">
+          
+          @for(item of list; track item.title){
+            <div style="width: 200px; height: 50px;border: 1px solid black;"  (click)="removeFromList(item.title)"
+            class="list">{{item.title}}</div>
+          }
+        </div>
+        
+        <div [@listShake]="list.length" style="margin-left: 50px;">
+          d
+          @for(item of list; track item.title){
+            <div style="width: 200px; height: 50px;border: 1px solid black;"  (click)="removeFromList(item.title)"
+            class="list">{{item.title}}</div>
+          }
+        </div>
+
+        <!-- <div [@hoverBox]="list.length" style="margin-left: 50px;">
+          
+          @for(item of list; track item.title){
+            <div style="width: 200px; height: 50px;border: 1px solid black;"  (click)="removeFromList(item.title)"
+            class="list">{{item.title}}</div>
+          }
+        </div> -->
+        
+      </div>
+        
+    <!-- *******button hover me -->
+    <button><span>Hover me!</span></button>
+
+  

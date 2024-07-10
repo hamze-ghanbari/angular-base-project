@@ -1,0 +1,75 @@
+// ? Color Map
+$colors: (
+  primary:(
+    default: #2bae66,
+    hover: #69da9c,
+    active: #20834d,
+    tint-1: #eafaf1,
+  ),
+  accent:(default: #00a0ff,
+  hover: #74cbff,
+  active: #0078bf,
+  accessible_AA: #0078bf,
+  accessible_AA__hover: #17a9ff,
+  accessible_AA__active: #005d95,
+  accessible_AAA: #005d95,
+  accessible_AAA__hover: #0093ea,
+  accessible_AAA__active: #005080,
+  shade-1: #0093ea,
+  shade-2: #0085d5,
+  shade-3: #0078bf,
+  shade-4: #006baa,
+  shade-5: #005d95,
+  shade-6: #005080,
+  shade-7: #00436a,
+  shade-8: #003555,
+  shade-9: #002840,
+  shade-10: #001b2a,
+  tint-1: #e8f6ff,
+  tint-2: #d1eeff,
+  tint-3: #b9e5ff,
+  tint-4: #a2dcff,
+  tint-5: #8bd4ff,
+  tint-6: #74cbff,
+  tint-7: #5dc3ff,
+  tint-8: #46baff,
+  tint-9: #2eb1ff,
+  tint-10: #17a9ff,
+),
+  black:(shade-1: #e7ebee,
+    shade-2: #ced3d7,
+    shade-3: #b7bdc1,
+    shade-4: #9fa6ab,
+    shade-5: #878f95,
+    shade-6: #6f797f,
+    shade-7: #576269,
+    shade-8: #404c53,
+    shade-9: #26343c,
+    shade-10: #0f1e27,
+  ),
+  surface:(shallow: #f2f5f8,
+    white: #fff,
+    deep: #03121b,
+  ),
+  success:(
+    default:#2bae66,
+    background: #eef6f1,
+  ),
+  link:(
+    default:#00a0ff,
+  ),
+  error:(
+    default:#ed3636,
+  ),
+  warning:(default:#f3dc8a)
+ );
+
+// ? ، با استفاده از این فاکشن میتوانیم با دادن اسم رنگ و حالت مورد نظرمون از اون رنگ
+// ? رنگ مورد نظرمون رو بگیریم. اگه هیچ حالت یا همون 
+// ? shade
+// ? بهش ندیم از حالت 
+// ? default
+// ? استفاده میکنه.
+@function setcolor($colorName, $shade: default) {
+  @return map-get(map-get($colors, $colorName), $shade);
+}

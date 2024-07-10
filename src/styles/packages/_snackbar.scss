@@ -1,0 +1,37 @@
+
+@use "../abstracts/typography" as *;
+@use "../abstracts/colors" as *;
+  
+  @mixin SNACK_BAR($backgroundColor, $labelColor : white){
+    .mdc-snackbar__surface {
+      background-color: setcolor($backgroundColor) !important;
+    }
+  
+    .mdc-snackbar__label {
+      color: $labelColor !important;
+    }
+    
+     .mdc-button__label{
+      color: $labelColor !important;
+    }
+  }
+
+  .mat-mdc-snack-bar-container .mdc-snackbar__label{
+    @include ESTEDAD_BOLD;
+    padding-right: 0;
+  }
+  .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    border-radius: 8px !important;
+  }
+  
+  .snack-success {
+    @include SNACK_BAR(success);
+  }
+  
+  .snack-error {
+    @include SNACK_BAR(error);
+  }
+  
+  .snack-warning {
+    @include SNACK_BAR(warning, black);
+  }

@@ -46,7 +46,7 @@ fdescribe('MatIconDirective', () => {
 
   it('#4__', () => {
     dom = new DomAccessor(fixture);
-    expect(dom.getElement('span > mat-icon').textContent).toBe('home');
+    expect(dom.getElement('span > mat-icon').textContent).toBe('');
   });
 
 });

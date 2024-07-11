@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { API_URL } from '@core/tokens/tokens';
+import { environment } from '@environments';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,7 +15,8 @@ describe('HomeComponent', () => {
       imports: [HomeComponent],
       providers: [
         provideHttpClient(),
-        provideHttpClientTesting()
+        provideHttpClientTesting(),
+        {provide : API_URL, useValue: environment.API_URL},
       ],
     })
     .compileComponents();

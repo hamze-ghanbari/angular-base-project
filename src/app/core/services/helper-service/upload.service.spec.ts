@@ -1,12 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UploadService } from './upload.service';
+import { HttpClient } from '@angular/common/http';
+import { httpClientMock } from '@shared/spec/MockDependencies';
 
 describe('UploadService', () => {
   let service: UploadService;
-
+  let httpClientSpy = httpClientMock();
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[
+        {
+          provide: HttpClient,
+          useValue: httpClientSpy
+        },
+      ]
+    });
     service = TestBed.inject(UploadService);
   });
 

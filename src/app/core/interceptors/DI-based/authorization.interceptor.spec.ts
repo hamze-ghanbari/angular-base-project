@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { HttpInterceptorFn, HttpRequest, provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpInterceptorFn, HttpRequest, provideHttpClient } from '@angular/common/http';
 
 import { AuthorizationInterceptor } from './authorization.interceptor';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
@@ -18,7 +18,7 @@ describe('authorizationInterceptor', () => {
             provideHttpClient(),
             provideHttpClientTesting(),
         //  HttpService,
-        //  {provide:HTTP_INTERCEPTOR, useClass: HttpInterceptorService, multi: true},
+         {provide: HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true},
         ]
       });
     //   httpService = TestBed.get(HttpService);

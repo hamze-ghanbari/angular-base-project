@@ -1,6 +1,8 @@
 <p>home works!</p>
 <button type="button" (click)="snack()" #temp>click me</button>
 
+<span [appMatIcon]="'home'"></span>
+
 <form [formGroup]="form" (ngSubmit)="formSubmit()">
 <input type="text" formControlName="name" placeholder="name" />
 @if(form.controls['name'].invalid && form.controls['name'].hasError('alpha') && (form.controls['name'].dirty || form.controls['name'].touched)){

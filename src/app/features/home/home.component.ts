@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, OnInit, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, TemplateRef, ViewChild, ViewEncapsulation, afterNextRender, afterRender } from '@angular/core';
 import { isHttpResponse } from '@core/utils/http';
 import { HttpClient } from '@angular/common/http';
 import { API_URL } from '@core/tokens/tokens';
@@ -16,11 +16,12 @@ import { nationalCodeValidator } from '@shared/validations/nationalCode.validato
 import { requiredValidator } from '@shared/validations/required.validator';
 import { isNumberValidator } from '@shared/validations/isNumber.validator';
 import { isAlphaValidator } from '@shared/validations/isAlpha.validator';
+import { MatIconDirective } from '@shared/directives/mat-icon.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [DismissEventDirective, MatTableModule, ReactiveFormsModule],
+  imports: [DismissEventDirective, MatTableModule, ReactiveFormsModule, MatIconDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   animations: [listShakeAnimation, listFadeAnimation, ]
@@ -56,6 +57,8 @@ export class HomeComponent implements OnInit {
     console.log('config', this.configService.config);
   }
   ngOnInit(): void {
+
+    
     this.httpClient.get(`${this.apiUrl}/users`).subscribe({
       next(value) {
         console.log('next', value);

@@ -1,54 +1,46 @@
 import { isPlatformBrowser } from "@angular/common";
 import { Injectable, Inject, PLATFORM_ID, InjectionToken } from "@angular/core";
+import { BasePlatFormBrowser } from "./platform-browser";
 
 @Injectable(
     {
-        providedIn: `root`
+        providedIn: 'root'
     }
 )
-export class LocalRepository {
-    private isInBrowser: boolean;
+export class LocalRepository extends BasePlatFormBrowser {
     private isLocalStorageSupported: boolean;
 
-    constructor(
-        @Inject(PLATFORM_ID) private platformId: InjectionToken<Object>
-    ) {
-        this.isInBrowser = isPlatformBrowser(this.platformId);
-        this.isLocalStorageSupported = typeof (localStorage) !== "undefined";
+    constructor() {
+        super();
+        this.isLocalStorageSupported = typeof Storage !== undefined;
     }
 
-    public get IsInMobile(): boolean {
-        let userAgent = navigator.userAgent || navigator.vendor;
-        let mobile = /android/i.test(userAgent) || /iPhone|ipad|iPod/i.test(userAgent);
-        return mobile;
+    private localSupported(): boolean{
+        return this.isInBrowser && this.isLocalStorageSupported
     }
 
-    public get IsInBrowser(): boolean {
-        return this.isInBrowser;
-    }
-
-    public setItem(key: string, value: string) {
-        if (this.isInBrowser && this.isLocalStorageSupported)
+     setItem(key: string, value: string) {
+        if (this.localSupported())
             localStorage.setItem(key, value);
     }
 
-    public setItemAs<T>(key: string, value: T) {
-        if (this.isInBrowser && this.isLocalStorageSupported) {
+     setItemAs<T>(key: string, value: T) {
+        if (this.localSupported()) {
             const data = JSON.stringify(value);
             localStorage.setItem(key, data);
         }
     }
 
-    public getItem(key: string): string | undefined {
-        if (this.isInBrowser && this.isLocalStorageSupported) {
+     getItem(key: string): string | undefined {
+        if (this.localSupported()) {
             return localStorage.getItem(key) || undefined
         }
         return undefined;
     }
 
-    public getItemAs<T>(key: string): T | undefined {
+     getItemAs<T>(key: string): T | undefined {
         let data: T;
-        if (this.isInBrowser && this.isLocalStorageSupported) {
+        if (this.localSupported()) {
             const foundItem = localStorage.getItem(key) || '';
             data = JSON.parse(foundItem) as T;
             return data
@@ -56,13 +48,13 @@ export class LocalRepository {
         return undefined;
     }
 
-    public clear() {
-        if (this.isInBrowser && this.isLocalStorageSupported)
+     clear() {
+        if (this.localSupported())
             localStorage.clear();
     }
 
-    public removeItem(key: string) {
-        if (this.isInBrowser && this.isLocalStorageSupported)
+     removeItem(key: string) {
+        if (this.localSupported())
             localStorage.removeItem(key);
     }
 

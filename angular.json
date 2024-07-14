@@ -35,10 +35,9 @@
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "@angular/material/prebuilt-themes/pink-bluegrey.css",
-              "src/styles.scss",
-              "src/styles/classes/_colors.scss",
-              "src/styles/classes/_typography.scss",
-              "src/styles/packages/_snackbar.scss"
+              "src/styles/classes/_index.scss",
+              "src/styles/packages/_index.scss",
+              "src/styles.scss"
             ],
             "scripts": []
           },

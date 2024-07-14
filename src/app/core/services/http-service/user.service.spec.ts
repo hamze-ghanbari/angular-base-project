@@ -4,7 +4,7 @@ import { UserService } from './user.service';
 import { createSpyObject, makeDependecy } from '@shared/spec/MockDependencies';
 import { LocalRepository } from '@core/utils/local-repository';
 
-describe('UserService', () => {
+fdescribe('UserService', () => {
   let service: UserService;
   let spy = createSpyObject({
     LocalRepository : { methods : ['setItem', 'getItem'] }

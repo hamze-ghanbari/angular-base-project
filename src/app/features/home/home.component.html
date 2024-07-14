@@ -1,8 +1,31 @@
-<p>home works!</p>
-<button type="button" (click)="snack()" #temp>click me</button>
+<!-- seperate number pipe -->
+<div class="d-flex mb-3">
+  <input type="text" appNumberValue  #dd (input)="text = dd.value" placeholder="seperateNumber pipe" />
+  <span>{{text | seperateNumber}}</span>
+</div>
 
-<span [appMatIcon]="'home'"></span>
+<div class="d-flex mb-3">
+<!-- jalali date pipe -->
+<span class="link__default bg-tint1">{{date | jalaliDate | persianNumbers}}</span>
+<!-- jalali time pipe -->
+<span>{{date | jalaliTime | persianNumbers}}</span>
+</div>
 
+<div class="d-flex mb-3">
+  <!-- matIcon directive -->
+  <span [appMatIcon]="'home'"></span>
+  <span [appMatIcon]="'android'"></span>
+  <span [appMatIcon]="'bug_report'"></span>
+</div>
+<div class="d-flex mb-3">
+  <!-- ConvertNumbersToEnglish directive -->
+<input type="text" appConvertNumbersToEnglish placeholder="ConvertNumbersToEnglish directive" />
+</div>
+
+<div class="d-flex mb-3">
+<button type="button" (click)="snack()" #temp>open snackbar</button>
+</div>
+<div class="d-flex mb-3">
 <form [formGroup]="form" (ngSubmit)="formSubmit()">
 <input type="text" formControlName="name" placeholder="name" />
 @if(form.controls['name'].invalid && form.controls['name'].hasError('alpha') && (form.controls['name'].dirty || form.controls['name'].touched)){
@@ -24,13 +47,12 @@
             }
 <button type="submit">submit form</button>
 </form>
-<!-- <button type="button" (click)="snackE()">click me error</button>
+</div>
 
-<input type="text" placeholder="without dismiss" />
-<input type="text" appDismissEvent placeholder="with dismiss" />
-
-    <div style="width: 400px;height: 200px;border: 1px solid gray;" (mouseenter)="isHover = true" (mouseleave)="isHover = false" [@hoverBox]="isHover ? 'hover' : 'blur'"></div> -->
-
+<div class="d-flex mb-3">
+<input type="text" appDismissEvent placeholder="dismiss event directive" />
+</div>
+<div class="d-flex flex-wrap mb-3">
     <button type="button" (click)="addToList()">add to list</button>
 <!-- 
     <table mat-table [dataSource]="list" class="mat-elevation-z8" [@listShake]="list.length">
@@ -43,8 +65,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>  -->
 
-      <div style="display: flex; flex-direction: row; align-items: center;">
-
+      <div class="d-flex align-items-center w-100 mt-3" >
         
         <div [@listFade]="list.length">
           
@@ -55,24 +76,13 @@
         </div>
         
         <div [@listShake]="list.length" style="margin-left: 50px;">
-          d
           @for(item of list; track item.title){
             <div style="width: 200px; height: 50px;border: 1px solid black;"  (click)="removeFromList(item.title)"
             class="list">{{item.title}}</div>
           }
         </div>
-
-        <!-- <div [@hoverBox]="list.length" style="margin-left: 50px;">
-          
-          @for(item of list; track item.title){
-            <div style="width: 200px; height: 50px;border: 1px solid black;"  (click)="removeFromList(item.title)"
-            class="list">{{item.title}}</div>
-          }
-        </div> -->
         
       </div>
-        
-    <!-- *******button hover me -->
-    <button><span>Hover me!</span></button>
+      </div>
 
   

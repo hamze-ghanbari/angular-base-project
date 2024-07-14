@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ForbiddenComponent } from './forbidden.component';
 import { DomAccessor } from '@shared/spec/DomAccessor';
 
-describe('ForbiddenComponent', () => {
+fdescribe('ForbiddenComponent', () => {
   let component: ForbiddenComponent;
   let fixture: ComponentFixture<ForbiddenComponent>;
   let dom: DomAccessor<ForbiddenComponent>;

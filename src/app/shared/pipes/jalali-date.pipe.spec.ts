@@ -3,7 +3,7 @@ import { JalaliDatePipe } from './jalali-date.pipe';
 import { makeDependecy } from '@shared/spec/MockDependencies';
 import { jalaliDateRegex } from '@shared/validations/regex/regex';
 
-describe('JalaliPipe', () => {
+fdescribe('JalaliPipe', () => {
   let pipe: JalaliDatePipe;
 
   beforeEach(async () => {

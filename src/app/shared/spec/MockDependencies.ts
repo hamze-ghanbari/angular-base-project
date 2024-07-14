@@ -1,6 +1,5 @@
 import { ProviderToken } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { indexType } from '@core/models/types';
 import { KeysSpy, ReturnConfigType, SpyConfigType } from '@core/models/types/spy-config';
 import { Observable } from 'rxjs';
 

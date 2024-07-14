@@ -3,7 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { ConfigService } from './config.service';
 import { APP_CONFIG } from '@core/constants/config';
 
-describe('ConfigService', () => {
+fdescribe('ConfigService', () => {
   let service: ConfigService;
 
   beforeEach(() => {

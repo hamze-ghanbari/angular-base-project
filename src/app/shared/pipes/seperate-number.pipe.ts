@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SeperateNumberPipe implements PipeTransform {
 
   transform(value: string | number): string {
-    return Number(value).toLocaleString();
+    return value ?  Number(value).toLocaleString() : '';
   }
 
 }

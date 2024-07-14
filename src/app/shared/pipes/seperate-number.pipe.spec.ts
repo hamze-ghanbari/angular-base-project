@@ -3,7 +3,7 @@ import { SeperateNumberPipe } from './seperate-number.pipe';
 import { makeDependecy } from '@shared/spec/MockDependencies';
 import { indexType } from '@core/models/types';
 
-describe('SeperateNumberPipe', () => {
+fdescribe('SeperateNumberPipe', () => {
   let pipe: SeperateNumberPipe;
   beforeEach(async () => {
     await TestBed.configureTestingModule({

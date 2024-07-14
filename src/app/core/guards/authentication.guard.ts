@@ -1,4 +1,3 @@
-import { Inject, inject } from '@angular/core';
 import { CanActivateFn, Route, Router } from '@angular/router';
 import { UserService } from '@core/services/http-service/user.service';
 import { getInstance } from '@core/utils/injector';

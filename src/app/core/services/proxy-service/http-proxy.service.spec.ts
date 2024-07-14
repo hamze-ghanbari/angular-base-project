@@ -6,7 +6,7 @@ import { API_URL } from '@core/tokens/tokens';
 import { Observable, of } from 'rxjs';
 import { environment } from '@environments';
 
-describe('HttpProxyService', () => {
+fdescribe('HttpProxyService', () => {
   let service: HttpProxyService;
   let httpClientSpy = httpClientMock();
   beforeEach(() => {

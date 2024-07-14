@@ -15,7 +15,7 @@ import { createSpyOn, makeDependecy } from '@shared/spec/MockDependencies';
 class TestNumberValueComponent { }
 
 
-describe('NumberValueDirective', () => {
+fdescribe('NumberValueDirective', () => {
   let fixture: ComponentFixture<TestNumberValueComponent>;
   let elementsDirective: DebugElement;
   let directive: NumberValueDirective;

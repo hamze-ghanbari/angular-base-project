@@ -14,7 +14,7 @@ import { DismissEventDirective } from './dismiss-event.directive';
 class TestDismissEventComponent { }
 
 
-describe('DismissEventDirective', () => {
+fdescribe('DismissEventDirective', () => {
   let fixture: ComponentFixture<TestDismissEventComponent>;
   let elementsDirective: DebugElement;
   beforeEach(() => {

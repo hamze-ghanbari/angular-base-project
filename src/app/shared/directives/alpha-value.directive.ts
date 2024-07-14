@@ -4,6 +4,7 @@ import { Directive, ElementRef, HostListener, Input, OnChanges, SimpleChanges } 
   selector: '[appAlphaValue]',
   standalone: true
 })
+// ************ It does not work, it must be changed
 export class AlphaValueDirective implements OnChanges {
   alphaRegex: RegExp = new RegExp(/^[a-z ضصثقفغعهخحجچشسیبلاتنمکگپظطزرذدئوِِّژؤيةإأءًٌٍَُِّۀآ]*$/ig);
   element: HTMLInputElement;

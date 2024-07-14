@@ -4,7 +4,6 @@ import { routes } from './app.routes';
 import { ConfigService } from './core/services/helper-service/config.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { API_URL } from '@core/tokens/tokens';
 import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { catcheErrorInterceptor } from '@core/interceptors/DI-based/catch-error.interceptor';
@@ -27,11 +26,11 @@ export const appConfig: ApplicationConfig = {
       ),
     provideHttpClient(
       withInterceptorsFromDi(),
+      //************8 */ optional interceptors
       withInterceptors([offlineModeInterceptor, timeOutInterceptor])
     ),
     provideAnimationsAsync(),
     // provideAnimations(),
-    provideCharts(withDefaultRegisterables()),
     {provide: APP_INITIALIZER, useFactory: appCongifService, multi: true},
     {provide : API_URL, useValue: environment.API_URL},
     {provide : HTTP_INTERCEPTORS, useClass: AuthorizationInterceptor, multi: true},

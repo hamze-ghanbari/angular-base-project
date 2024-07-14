@@ -14,7 +14,7 @@ import { By } from '@angular/platform-browser';
   class TestConvertNumbersComponent { }
   
   
-  describe('ConvertNumbersToEnglishDirective', () => {
+  fdescribe('ConvertNumbersToEnglishDirective', () => {
     let fixture: ComponentFixture<TestConvertNumbersComponent>;
     let elementsDirective: DebugElement;
     let directive: ConvertNumbersToEnglishDirective;

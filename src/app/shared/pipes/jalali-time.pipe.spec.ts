@@ -3,7 +3,7 @@ import { JalaliTimePipe } from './jalali-time.pipe';
 import { makeDependecy } from '@shared/spec/MockDependencies';
 import { jalaliTimeRegex } from '@shared/validations/regex/regex';
 
-describe('JalaliTimePipe', () => {
+fdescribe('JalaliTimePipe', () => {
   let pipe: JalaliTimePipe;
 
   beforeEach(async () => {

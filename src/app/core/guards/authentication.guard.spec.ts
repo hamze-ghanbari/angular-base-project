@@ -5,7 +5,7 @@ import { UserService } from '@core/services/http-service/user.service';
 import { createSpyObject, createSpyOnByReturn } from '@shared/spec/MockDependencies';
 import { Observable } from 'rxjs';
 
-describe('authenticationGuard', () => {
+fdescribe('authenticationGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) =>
     TestBed.runInInjectionContext(() => authenticationGuard(...guardParameters));
   let spy = createSpyObject({

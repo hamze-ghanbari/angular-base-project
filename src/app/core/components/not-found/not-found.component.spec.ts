@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NotFoundComponent } from './not-found.component';
 import { DomAccessor } from '@shared/spec/DomAccessor';
 
-describe('NotFoundComponent', () => {
+fdescribe('NotFoundComponent', () => {
   let component: NotFoundComponent;
   let fixture: ComponentFixture<NotFoundComponent>;
   let dom: DomAccessor<NotFoundComponent>;

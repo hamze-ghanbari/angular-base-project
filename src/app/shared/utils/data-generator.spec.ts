@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { randomArray, randomArrayObject, randomBoolean, randomDate, randomNumber, randomObject, randomString } from './data-generator';
 
-describe('dataGenerator', () => {
+fdescribe('dataGenerator', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({});
   });

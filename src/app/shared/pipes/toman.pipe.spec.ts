@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { makeDependecy } from '@shared/spec/MockDependencies';
 import { TomanPipe } from './toman.pipe';
 
-describe('TomanPipe', () => {
+fdescribe('TomanPipe', () => {
   let pipe: TomanPipe;
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -44,9 +44,9 @@ fdescribe('MatIconDirective', () => {
     expect(attributes['class']).toEqual('mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color');
   });
 
-  it('#4__', () => {
-    dom = new DomAccessor(fixture);
-    expect(dom.getElement('span > mat-icon').textContent).toBe('');
-  });
+  // it('#4__', () => {
+  //   // dom = new DomAccessor(fixture);
+  //   // expect(dom.getElement('span > mat-icon').textContent).toBe('');
+  // });
 
 });

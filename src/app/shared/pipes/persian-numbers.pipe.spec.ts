@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { PersianNumbersPipe } from './persian-numbers.pipe';
 import { makeDependecy } from '@shared/spec/MockDependencies';
 
-describe('PersianNumbersPipe', () => {
+fdescribe('PersianNumbersPipe', () => {
   let pipe: PersianNumbersPipe;
   beforeEach(async () => {
    await TestBed.configureTestingModule({

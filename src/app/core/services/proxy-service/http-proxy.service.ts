@@ -16,38 +16,38 @@ export abstract class HttpProxyService {
   ) { 
   }
 
-   protected get(url: string, options?: httpOptions): Observable<any> {
-    return this.http.get<Observable<any>>(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+   protected get<T>(url: string, options?: httpOptions): Observable<T> {
+    return this.http.get<T>(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }
 
-  protected post(url: string, body: any, options?: httpOptions): Observable<any>{
-    return this.http.post(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+  protected post<T>(url: string, body: any, options?: httpOptions): Observable<T>{
+    return this.http.post<T>(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }
 
-  protected put(url: string, body: any | null, options?: httpOptions): Observable<any>{
-    return this.http.put(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+  protected put<T>(url: string, body: any | null, options?: httpOptions): Observable<T>{
+    return this.http.put<T>(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }
 
-  protected delete(url: string, options?: httpOptions): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+  protected delete<T>(url: string, options?: httpOptions): Observable<T> {
+    return this.http.delete<T>(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }
 
-  protected head(url: string, options?: httpOptions): Observable<any> {
-    return this.http.head(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+  protected head<T>(url: string, options?: httpOptions): Observable<T> {
+    return this.http.head<T>(`${this.baseUrl}/${url}`, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }
 
-  protected patch(url: string, body: any | null, options?: httpOptions): Observable<any>{
-    return this.http.patch(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
+  protected patch<T>(url: string, body: any | null, options?: httpOptions): Observable<T>{
+    return this.http.patch<T>(`${this.baseUrl}/${url}`, body, {observe: 'body', responseType: 'json', ...options} as any).pipe(
       catchError(error => of(error))
     );
   }

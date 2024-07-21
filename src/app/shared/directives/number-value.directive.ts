@@ -1,4 +1,5 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DestroyRef, Directive, ElementRef, HostListener, Inject, InjectionToken, PLATFORM_ID, inject, input } from '@angular/core';
 import { numberRegex } from '@shared/validations/regex/regex';
 
 
@@ -10,9 +11,17 @@ export class NumberValueDirective {
   numberRegex = new RegExp(numberRegex);
   element: HTMLInputElement;
   constructor(
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private paltFormId: InjectionToken<Object>
   ) {
     this.element = this.elementRef.nativeElement;
+    inject(DestroyRef).onDestroy(() => {
+      if(isPlatformBrowser(this.paltFormId)){
+        // this.element.removeEventListener('input', this.input as HTMLInputElement);
+        this.document.removeEventListener('paste', this.paste);
+      }
+    });
   }
 
   @HostListener('input', ['$event.data']) input(data: string) {

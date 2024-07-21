@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BasePlatFormBrowser } from "./platform-browser";
+import { Location } from "@angular/common";
 
 @Injectable(
     {
@@ -7,8 +8,22 @@ import { BasePlatFormBrowser } from "./platform-browser";
     }
 )
 export class WindowRepository extends BasePlatFormBrowser {
-    constructor() {
+    constructor(
+        private location: Location
+    ) {
         super();
+    }
+
+    forward(): void{
+        if(this.isInBrowser){
+            this.location.forward();
+        }
+    }
+
+    back(): void{
+        if(this.isInBrowser){
+            this.location.back();
+        }
     }
 
     isOnline(): boolean | undefined {

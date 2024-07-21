@@ -1,4 +1,5 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DestroyRef, Directive, ElementRef, HostListener, Inject, InjectionToken, PLATFORM_ID, inject } from '@angular/core';
 
 @Directive({
   selector: '[appConvertNumbersToEnglish]',
@@ -7,9 +8,17 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class ConvertNumbersToEnglishDirective {
   element: HTMLInputElement;
   constructor(
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    @Inject(DOCUMENT) private document: Document,
+    @Inject(PLATFORM_ID) private paltFormId: InjectionToken<Object>
   ) {
     this.element = this.elementRef.nativeElement;
+    inject(DestroyRef).onDestroy(() => {
+      if(isPlatformBrowser(this.paltFormId)){
+        this.element.removeEventListener('input', this.input);
+        this.document.removeEventListener('paste', this.paste);
+      }
+    });
   }
   
   @HostListener('input') input() {

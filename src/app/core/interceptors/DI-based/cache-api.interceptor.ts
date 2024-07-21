@@ -13,10 +13,12 @@ export class cacheApiInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any> | any> {
     let timeNow = new Date().getTime();
 
+    if(req.method.toLocaleLowerCase() === 'get'){
     if (req.context.get(CACHING_ENABLED)) {
       if (this.cache.has(req.url)) {
-        if (this.cache.get(req.url)!.expire > timeNow) {
-          let cacheData = this.cache.get(req.url)?.response;
+        let getCache = this.cache.get(req.url);
+        if (getCache!.expire > timeNow) {
+          let cacheData = getCache?.response;
           return of(cacheData);
         } else {
           return this.cacheApiResponse(req, next);
@@ -26,28 +28,25 @@ export class cacheApiInterceptor implements HttpInterceptor {
         return this.cacheApiResponse(req, next);
       }
     }
-    return next.handle(req).pipe(
-      catchError((err: HttpErrorResponse) => {
+  }
+    return next.handle(req);
+    // .pipe(
+    //   catchError((err: HttpErrorResponse) => {
 
-        if (err.error instanceof Error) {
-          // A client-side or network error occurred. Handle it accordingly.
-          console.error('An error occurred:', err.error.message);
-        } else {
-          // The backend returned an unsuccessful response code.
-          console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
-          return of(new HttpResponse({
-            body : 'client closed request',
-            status: 499
-          }))
-        }
-
-        // ...optionally return a default fallback value so app can continue (pick one)
-        // which could be a default value
-        // return Observable.of<any>({my: "default value..."});
-        // or simply an empty observable
-        return of(EMPTY);
-      })
-    );
+    //     if (err.error instanceof Error) {
+    //       // A client-side or network error occurred. Handle it accordingly.
+    //       console.error('An error occurred:', err.error.message);
+    //     } else {
+    //       // The backend returned an unsuccessful response code.
+    //       console.error(`Backend returned code ${err.status}, body was: ${err.error}`);
+    //       return of(new HttpResponse({
+    //         body : 'client closed request',
+    //         status: 499
+    //       }))
+    //     }
+    //     return of(EMPTY);
+    //   })
+    // );
   }
 
   cacheApiResponse(req: HttpRequest<any>, next: HttpHandler) {

@@ -3,7 +3,8 @@ import { NotFoundComponent } from '@core/components/not-found/not-found.componen
 
 export const routes: Routes = [
     // canActivate : [authenticationGuard],
-    { path: '' , redirectTo: 'home', pathMatch: 'full'},
+    // { path: '' , redirectTo: 'home', pathMatch: 'full'},
+    { path: '' , loadComponent: () => import('./app.component').then(c => c.AppComponent)},
     { path: 'home' , loadComponent: () => import('./features/home/home.component').then(c => c.HomeComponent)},
     { path: '**', component: NotFoundComponent}
 ];

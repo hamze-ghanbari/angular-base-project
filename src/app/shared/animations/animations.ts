@@ -1,6 +1,6 @@
-import { trigger, transition, style, animate, animateChild, query, state, keyframes, stagger } from "@angular/animations";
+import { trigger, transition, style, animate, animateChild, query, state, keyframes, stagger, AnimationTriggerMetadata } from "@angular/animations";
 
-  export const listShakeAnimation = [
+  export const listShakeAnimation: AnimationTriggerMetadata[] = [
     trigger('listShake', [
         transition('* <=> *', [
           query(':enter', [
@@ -20,7 +20,7 @@ import { trigger, transition, style, animate, animateChild, query, state, keyfra
     ]),
   ];
 
-  export const listFadeAnimation = 
+  export const listFadeAnimation: AnimationTriggerMetadata = 
   trigger('listFade', [
     transition('* => *', [ 
       query(':leave', [

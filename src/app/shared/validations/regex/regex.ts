@@ -8,4 +8,6 @@ export const numberRegex = /^\d*\.?\d*$/;
 
 export const faAlphaRegex = /^[ضصثقفغعهخحجچشسیبلاتنمکگپظطزرذدئوِِّژؤيةإأءًٌٍَُِّۀآ ?><;,{}[\]\-_+=!@#$%\^&*|']*$/;
 
-export const enAlphaRegex = /^[a-zA-Z ?><;,{}[\]\-_+=!@#$%\^&*|']*$/;
+export const enAlphaRegex = /^[a-zA-Z ?><;,{}[\]\-_+=!@#$%\^&*|']*$/i;
+
+export const scriptRegex = /<[\b]?[^>]*>[\s\S]*?<\/[\b]?[^>]*>/ig;

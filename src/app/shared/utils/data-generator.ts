@@ -5,11 +5,11 @@ const configData = {
     rangeNumber: 10000,
 };
 
-export const randomNumber = (range?: number) => {
+export const randomNumber = (range?: number): number => {
     return Math.floor(Math.random() * (range ?? configData.rangeNumber));
 }
 
-export const randomString = () => {
+export const randomString = (): string => {
     let alphaChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let generatedString = '';
     configData.rangeNumber = alphaChars.length;
@@ -20,31 +20,33 @@ export const randomString = () => {
     return generatedString.toLowerCase();
 }
 
-export const randomBoolean = () => {
+export const randomBoolean = (): boolean => {
     return (Math.floor(Math.random() * configData.rangeNumber) % 2) ? true : false;
 }
 
-export const randomDate = (type: 'string' | 'date' = 'date') => {
+export const randomDate = (type: 'string' | 'date' = 'date'): string | Date => {
     if (type == 'date')
-        return new Date(new Date().toISOString());
+        return new Date();
+    // return new Date(new Date().toISOString());
     else
-    return new Date().toISOString();
+        return new Date().toISOString();
 }
 
-export const randomArray = (array: any[]) => {
+export const randomArray = (array: any[]): unknown[] => {
     let result: any = [];
-    for (let i = 0; i < array.length; i++) {
-        if (isObject(array[i]))
-            result.push(generateData(array[i]));
-        else if (Array.isArray(array[i]))
-            result.push(randomArray(array[i]));
+    array.forEach((item, index) => {
+        if (isObject(array[index]))
+            result.push(generateData(array[index]));
+        else if (Array.isArray(array[index]))
+            result.push(randomArray(array[index]));
         else
-            result.push(randomprimitiveData(array[i]));
-    }
+            result.push(randomprimitiveData(array[index]));
+    });
+    // for (let i = 0; i < array.length; i++) {}
     return result;
 }
 
-export const randomArrayObject = (object: any, count: number = 2, properties: any = {}) => {
+export const randomArrayObject = (object: any, count: number = 2, properties: any = {}): unknown[] => {
     let result: any[] = [];
     for (let i = 0; i < count; i++) {
         result.push(generateData(object));
@@ -57,20 +59,19 @@ export const randomArrayObject = (object: any, count: number = 2, properties: an
 }
 
 export const randomObject = (object: any, properties: any = {}) => {
-    let result: any;
-    result = generateData(object);
+    let result: any = generateData(object);
     if (Object.keys(properties).length > 0)
-        result = findProperty(result, properties);
-    return result;
+        return findProperty(result, properties);
 }
 
 function findProperty(object: any, properties = {}) {
-    let keys = Object.keys(properties);
-    let values = Object.values(properties);
-    for (let i = 0; i < Object.keys(object).length; i++) {
-        if (object.hasOwnProperty(keys[i]))
-            object[keys[i]] = values[i];
-    }
+    let keys: string[] = Object.keys(properties);
+    let values: unknown[] = Object.values(properties);
+    Object.keys(object).forEach((item, index) => {
+        if (object.hasOwnProperty(keys[index]))
+            object[keys[index]] = values[index];
+    });
+    // for (let i = 0; i < Object.keys(object).length; i++) {}
     return object;
 }
 
@@ -127,27 +128,29 @@ function randomprimitiveData(type: any) {
 
 
 
-function generateData(object: any) {
+function generateData(object: object) {
     let result: any = {};
-    let keys = Object.keys(object);
-    let values = Object.values(object);
-    let type;
-    for (let i = 0; i < keys.length; i++) {
-        type = values[i];
+    let keys: string[] = Object.keys(object);
+    let values: unknown[] = Object.values(object);
+    let type: unknown;
+    keys.forEach((item, index) => {
+        type = values[index];
         if (isString(type, true))
-            result[keys[i]] = randomString();
+            result[keys[index]] = randomString();
         if (isNumber(type))
-            result[keys[i]] = randomNumber();
+            result[keys[index]] = randomNumber();
         if (isBoolean(type))
-            result[keys[i]] = randomBoolean();
+            result[keys[index]] = randomBoolean();
         if (isDate(type))
-            result[keys[i]] = randomDate();
+            result[keys[index]] = randomDate();
         if (Array.isArray(type))
-            result[keys[i]] = randomArray(type);
+            result[keys[index]] = randomArray(type);
         if (isObject(type))
-            result[keys[i]] = generateData(type);
+            result[keys[index]] = generateData(type);
         if (isNull(type))
-            result[keys[i]] = null;
-    }
+            result[keys[index]] = null;
+    });
+    // for (let i = 0; i < keys.length; i++) {}
+
     return result;
 }

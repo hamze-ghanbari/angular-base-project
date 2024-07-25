@@ -1,5 +1,6 @@
 import { ProviderToken } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { indexType } from '@core/models/types';
 import { KeysSpy, ReturnConfigType, SpyConfigType } from '@core/models/types/spy-config';
 import { Observable } from 'rxjs';
 
@@ -11,7 +12,7 @@ export function createSpyObject(config: Partial<SpyConfigType>): Partial<ReturnC
     return result;
 }
 
-export function createSpyOn(object: any, methodName: string[]) {
+export function createSpyOn(object: any, methodName: string[]): indexType {
     let result: { [prop: string]: any } = {};
     let obj: any = TestBed.inject(object);
     for (const method of methodName) {

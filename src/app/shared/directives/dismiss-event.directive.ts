@@ -19,15 +19,15 @@ export class DismissEventDirective {
     });
   }
 
-  @HostListener('copy', ['$event']) copy(event: Event) {
+  @HostListener('copy', ['$event']) copy(event: Event): void {
     event.preventDefault();
   }
 
-  @HostListener('paste', ['$event']) paste(event: Event) {
+  @HostListener('paste', ['$event']) paste(event: Event): void {
     event.preventDefault();
   }
 
-  @HostListener('cut', ['$event']) cut(event: Event) {
+  @HostListener('cut', ['$event']) cut(event: Event): void {
     event.preventDefault();
   }
 

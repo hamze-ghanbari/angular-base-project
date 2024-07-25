@@ -8,7 +8,7 @@ import { numberRegex } from '@shared/validations/regex/regex';
   standalone: true
 })
 export class NumberValueDirective {
-  numberRegex = new RegExp(numberRegex);
+  numberRegex: RegExp = new RegExp(numberRegex);
   element: HTMLInputElement;
   constructor(
     private elementRef: ElementRef,
@@ -24,7 +24,7 @@ export class NumberValueDirective {
     });
   }
 
-  @HostListener('input', ['$event.data']) input(data: string) {
+  @HostListener('input', ['$event.data']) input(data: string): void {
     this.NumberVal(data);
   }
 
@@ -32,11 +32,11 @@ export class NumberValueDirective {
   //   this.NumberVal(event.getData('text'));
   // }
 
-  @HostListener('paste', ['$event']) paste(event: Event) {
+  @HostListener('paste', ['$event']) paste(event: Event): void {
     event.preventDefault();
   }
 
-  NumberVal(data: string) {
+  NumberVal(data: string): void {
     if (!this.numberRegex.test(data))
       this.element.value = this.element.value.toString().replace(data, "");
     //   this.element.value = this.element.value;

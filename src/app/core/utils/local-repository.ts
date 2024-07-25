@@ -19,12 +19,12 @@ export class LocalRepository extends BasePlatFormBrowser {
         return this.isInBrowser && this.isLocalStorageSupported
     }
 
-     setItem(key: string, value: string) {
+     setItem(key: string, value: string): void {
         if (this.localSupported())
             localStorage.setItem(key, value);
     }
 
-     setItemAs<T>(key: string, value: T) {
+     setItemAs<T>(key: string, value: T): void {
         if (this.localSupported()) {
             const data = JSON.stringify(value);
             localStorage.setItem(key, data);
@@ -48,12 +48,12 @@ export class LocalRepository extends BasePlatFormBrowser {
         return undefined;
     }
 
-     clear() {
+     clear(): void {
         if (this.localSupported())
             localStorage.clear();
     }
 
-     removeItem(key: string) {
+     removeItem(key: string): void {
         if (this.localSupported())
             localStorage.removeItem(key);
     }

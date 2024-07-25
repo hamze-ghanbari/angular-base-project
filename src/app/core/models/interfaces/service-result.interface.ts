@@ -1,3 +1,5 @@
 export interface IServiceResult<T>{
-    result: T
+    result: T,
+    hasError : boolean,
+    message?: string 
 }

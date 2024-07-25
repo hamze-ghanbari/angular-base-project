@@ -20,7 +20,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['400'],
+          message: MESSAGES['HTTP_CODES']['400'],
           result : null
         },
         status: error.status
@@ -29,7 +29,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['401'],
+          message: MESSAGES['HTTP_CODES']['401'],
           result : null
         },
         status: error.status
@@ -38,7 +38,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['403'],
+          message: MESSAGES['HTTP_CODES']['403'],
           result : null
         },
         status: error.status
@@ -47,7 +47,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['404'],
+          message: MESSAGES['HTTP_CODES']['404'],
           result : null
         },
         status: error.status
@@ -56,7 +56,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['500'],
+          message: MESSAGES['HTTP_CODES']['500'],
           result : null
         },
         status: error.status
@@ -65,7 +65,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['502'],
+          message: MESSAGES['HTTP_CODES']['502'],
           result : null
         },
         status: error.status
@@ -74,7 +74,7 @@ function handleError(error: HttpErrorResponse): Observable<any> {
       return of(new HttpResponse({
         body: {
           hasError: true,
-          message: MESSAGES.HTTP_CODES['504'],
+          message: MESSAGES['HTTP_CODES']['504'],
           result : null
         },
         status: error.status

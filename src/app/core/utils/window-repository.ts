@@ -33,7 +33,7 @@ export class WindowRepository extends BasePlatFormBrowser {
             return undefined;
     }
 
-    copyText(value: string) {
+    copyText(value: string): void {
         if (this.isInBrowser) {
             window.navigator.clipboard.writeText(value).then(() => {
                 // ********
@@ -65,27 +65,27 @@ export class WindowRepository extends BasePlatFormBrowser {
             return undefined;
     }
 
-    print() {
+    print(): void {
         if (this.isInBrowser)
             window.print();
     }
 
-    setInterval(func: Function, milliseconds: number | undefined, ...args: any[]) {
+    setInterval(func: Function, milliseconds: number | undefined, ...args: any[]): void {
         if (this.isInBrowser)
             setInterval(func, milliseconds, args);
     }
 
-    clearInterval(intervalId: number | undefined) {
+    clearInterval(intervalId: number | undefined): void {
         if (this.isInBrowser)
             clearInterval(intervalId);
     }
 
-    setTimeout(func: Function, milliseconds: number | undefined, ...args: any[]) {
+    setTimeout(func: Function, milliseconds: number | undefined, ...args: any[]): void {
         if (this.isInBrowser)
             setTimeout(func, milliseconds, args);
     }
 
-    clearTimeout(myTimeout: number | undefined) {
+    clearTimeout(myTimeout: number | undefined): void {
         if (this.isInBrowser)
             clearTimeout(myTimeout);
 

@@ -16,15 +16,15 @@ export class SnackbarProxyService {
     private snackBar: MatSnackBar
   ) { }
 
-  open(message: string, action?: string, config?: MatSnackBarConfigType) {
+  open(message: string, action?: string, config?: MatSnackBarConfigType): void {
     this.snackBar.open(message, action, { ...this.defaultConfig, ...config });
   }
 
-  openFromComponent<T, D = any>(component: ComponentType<T>, config?: MatSnackBarConfigType<D>) {
+  openFromComponent<T>(component: ComponentType<T>, config?: MatSnackBarConfigType<any>): void {
     this.snackBar.openFromComponent(component, { ...this.defaultConfig, ...config });
   }
 
-  openFromTemplate(template: TemplateRef<any>, config?: MatSnackBarConfigType) {
+  openFromTemplate(template: TemplateRef<any>, config?: MatSnackBarConfigType): void {
     this.snackBar.openFromTemplate(template, { ...this.defaultConfig, ...config });
   }
 

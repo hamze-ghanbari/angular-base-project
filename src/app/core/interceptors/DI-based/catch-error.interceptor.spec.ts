@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpInterceptorFn, HttpRequest, HttpResponse } from '@angular/common/http';
 
 import { catcheErrorInterceptor } from './catch-error.interceptor';
-import { createSpyObject, createSpyOn, createSpyOnByReturn, httpClientMock, makeDependecy } from '@shared/spec/MockDependencies';
+import { createSpyObject, createSpyOn, createSpyOnByReturn, httpClientMock, makeDependecy } from '@core/spec/MockDependencies';
 import { of } from 'rxjs';
 
 describe('cacheErrorInterceptor', () => {

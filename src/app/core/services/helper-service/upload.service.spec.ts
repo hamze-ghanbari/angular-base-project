@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { UploadService } from './upload.service';
 import { HttpClient } from '@angular/common/http';
-import { httpClientMock } from '@shared/spec/MockDependencies';
+import { httpClientMock } from '@core/spec/MockDependencies';
 
 describe('UploadService', () => {
   let service: UploadService;

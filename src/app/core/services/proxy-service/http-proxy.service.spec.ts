@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpProxyService } from './http-proxy.service';
-import { httpClientMock, makeDependecy } from '@shared/spec/MockDependencies';
+import { httpClientMock, makeDependecy } from '@core/spec/MockDependencies';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { API_URL } from '@core/tokens/tokens';
 import { Observable, of } from 'rxjs';

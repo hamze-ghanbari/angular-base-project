@@ -5,9 +5,7 @@ import { untilDestroyed } from '@core/operators/until';
 import { API_URL } from '@core/tokens/tokens';
 import { EMPTY, Observable, catchError, map, of, takeUntil, throwError } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export abstract class HttpProxyService {
 
   private baseUrl: string = inject(API_URL);

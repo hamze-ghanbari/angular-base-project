@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpInterceptorFn, HttpResponse, provide
 
 import { offlineModeInterceptor } from './offline-mode.interceptor';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { createSpyObject, createSpyOnByReturn } from '@shared/spec/MockDependencies';
+import { createSpyObject, createSpyOnByReturn } from '@core/spec/MockDependencies';
 
 describe('offlineModeInterceptor', () => {
   const interceptor: HttpInterceptorFn = (req, next) => 

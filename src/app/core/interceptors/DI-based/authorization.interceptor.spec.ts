@@ -3,7 +3,7 @@ import { HTTP_INTERCEPTORS, HttpInterceptorFn, HttpRequest, provideHttpClient } 
 
 import { AuthorizationInterceptor } from './authorization.interceptor';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
-import { createSpyObject, createSpyOn } from '@shared/spec/MockDependencies';
+import { createSpyObject, createSpyOn } from '@core/spec/MockDependencies';
 import { Observable } from 'rxjs/internal/Observable';
 
 describe('authorizationInterceptor', () => {

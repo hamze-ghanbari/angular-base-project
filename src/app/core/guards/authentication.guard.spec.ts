@@ -2,7 +2,7 @@ import { TestBed, fakeAsync } from '@angular/core/testing';
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { authenticationGuard } from './authentication.guard';
 import { UserService } from '@core/services/http-service/user.service';
-import { createSpyObject, createSpyOnByReturn } from '@shared/spec/MockDependencies';
+import { createSpyObject, createSpyOnByReturn } from '@core/spec/MockDependencies';
 import { Observable } from 'rxjs';
 
 fdescribe('authenticationGuard', () => {

@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { SeperateNumberPipe } from './seperate-number.pipe';
-import { makeDependecy } from '@shared/spec/MockDependencies';
-import { indexType } from '@core/models/types';
+import { makeDependecy } from '@core/spec/MockDependencies';
 
 fdescribe('SeperateNumberPipe', () => {
   let pipe: SeperateNumberPipe;

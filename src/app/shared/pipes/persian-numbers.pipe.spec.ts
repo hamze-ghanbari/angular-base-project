@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { PersianNumbersPipe } from './persian-numbers.pipe';
-import { makeDependecy } from '@shared/spec/MockDependencies';
+import { makeDependecy } from '@core/spec/MockDependencies';
 
 fdescribe('PersianNumbersPipe', () => {
   let pipe: PersianNumbersPipe;

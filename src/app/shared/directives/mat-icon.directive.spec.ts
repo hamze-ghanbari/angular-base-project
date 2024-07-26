@@ -2,7 +2,7 @@ import { Component, DebugElement } from '@angular/core';
 import { MatIconDirective } from './mat-icon.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DomAccessor } from '@shared/spec/DomAccessor';
+import { DomAccessor } from '@core/spec/DomAccessor';
 
 @Component({
   standalone: true,

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { JalaliDatePipe } from './jalali-date.pipe';
-import { makeDependecy } from '@shared/spec/MockDependencies';
+import { makeDependecy } from '@core/spec/MockDependencies';
 import { jalaliDateRegex } from '@shared/validations/regex/regex';
 
 fdescribe('JalaliPipe', () => {

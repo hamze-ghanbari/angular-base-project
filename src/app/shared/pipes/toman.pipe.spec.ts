@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { makeDependecy } from '@shared/spec/MockDependencies';
+import { makeDependecy } from '@core/spec/MockDependencies';
 import { TomanPipe } from './toman.pipe';
 
 fdescribe('TomanPipe', () => {

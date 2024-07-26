@@ -3,7 +3,7 @@ import { NumberValueDirective } from './number-value.directive';
 import { Component, DebugElement, ElementRef } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { createSpyOn, makeDependecy } from '@shared/spec/MockDependencies';
+import { createSpyOn, makeDependecy } from '@core/spec/MockDependencies';
 
 @Component({
   standalone: true,

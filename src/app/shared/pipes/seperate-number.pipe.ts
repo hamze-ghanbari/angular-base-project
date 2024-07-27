@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { seperateNumberTransform } from './transformers/transforms';
 
 @Pipe({
   name: 'seperateNumber',
@@ -7,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SeperateNumberPipe implements PipeTransform {
 
   transform(value: string | number): string {
-    return value ?  Number(value).toLocaleString() : '';
+    return seperateNumberTransform(value);
   }
 
 }

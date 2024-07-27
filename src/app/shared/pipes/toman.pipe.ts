@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { tomanTransform } from './transformers/transforms';
 
 @Pipe({
   name: 'toman',
@@ -7,7 +8,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class TomanPipe implements PipeTransform {
 
   transform(value: number | string): number {
-    return Math.floor(+value / 10);
+    return tomanTransform(value);
   }
 
 }

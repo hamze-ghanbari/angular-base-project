@@ -30,7 +30,7 @@ export function appCongifService() {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(APP_ROUTES,
-      //  withComponentInputBinding(),
+       withComponentInputBinding(),
       withPreloading(RoutePreloadingStrategy)
     ),
     provideHttpClient(

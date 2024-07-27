@@ -13,8 +13,7 @@ export class cacheApiInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any> | any> {
     let timeNow = new Date().getTime();
 
-    if(req.method.toLocaleLowerCase() === 'get' && this.cache.size < 10){
-
+    if(req.method.toLocaleLowerCase() === 'get'){
     if (req.context.get(CACHING_ENABLED)) {
       if (this.cache.has(req.url)) {
         let getCache = this.cache.get(req.url);

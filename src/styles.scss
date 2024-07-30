@@ -40,7 +40,7 @@ a,
 mat-card-title {
   text-align: right;
   word-wrap: anywhere;
-  color: setcolor(primary);
+  @include ESTEDAD_REGULAR;
 }
 
 * {
@@ -49,9 +49,43 @@ mat-card-title {
     outline: none;
   }
   box-sizing: border-box;
+  caret-color: setcolor(brown);
+  text-decoration: none!important;
 }
 
 ::placeholder {
   @include ESTEDAD_REGULAR;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button{
+  background-color: setcolor(brown);
+  outline: none;
+  border: 0;
+  height: 45px;
+  min-height: 45px;
+  max-height: 45px;
+  &:disabled{
+      opacity: 0.7;
+  }
+  // &:hover{
+  //     box-shadow: #4e2406 0px 7px 5px 0px;
+  // }
+  // &:active{
+  //     box-shadow: none;
+  // }
+}
+
+.input-box {
+  border: 1px solid transparent;
+  height: 45px;
+  min-height: 45px;
+  max-height: 45px;
+}
+
+.pointer{
+  cursor: pointer;
+}

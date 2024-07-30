@@ -5,6 +5,7 @@ export const APP_CONFIG: indexType = {
     expireCache: 30000,
     accessTokenKey: 'access_token',
     refreshTokenKey: 'refresh_token',
-    expireTokenKey: 'expire_token'
+    expireTokenKey: 'expire_token',
+    userInfoKey: 'user_info'
 }
 

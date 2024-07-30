@@ -36,7 +36,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(
       withInterceptorsFromDi(),
       //************8 */ optional interceptors
-      withInterceptors([offlineModeInterceptor, timeOutInterceptor])
+      // withInterceptors([offlineModeInterceptor, timeOutInterceptor])
     ),
     provideAnimationsAsync(),
     // importProvidersFrom([

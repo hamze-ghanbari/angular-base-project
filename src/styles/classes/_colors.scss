@@ -3,14 +3,19 @@
 // ? loop over colors maps and create class from it
 @each $color, $shades in $colors {
   @each $shade, $value in $shades {
-        //   * Color Classes 
-          .#{"" + $color}__#{"" + $shade} {
-                  color: #{"" + $value}!important;
-          }
 
-        //   * Background Classes
-          .bg-#{"" + $color}__#{"" + $shade} {
-                  background-color: #{"" + $value}!important;
-          }
+    //   * Color Classes 
+    .text-#{"" + $color}__#{"" + $shade} {
+      color: #{"" + $value} !important;
+    }
+
+    //   * Background Classes
+    .bg-#{"" + $color}__#{"" + $shade} {
+      background-color: #{"" + $value} !important;
+    }
+
+    .border-#{"" + $color}__#{"" + $shade} {
+      border-color: #{"" + $value} !important;
+    }
   }
 }

@@ -1,0 +1,29 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()" class="d-flex flex-wrap justify-content-center mb-2">
+    <label class="col-10 text-right"><small>لطفا شماره موبایل خود را وارد نمایید</small></label>
+    <div class="col-10 parent-input-box">
+    <div class="col-12 mt-2 border rounded input-box d-flex align-items-center"
+        [ngClass]="{'border-red__default': loginForm.controls['phoneNumber'].hasError('phone'),
+    'border-green__default': !loginForm.controls['phoneNumber'].hasError('phone') && !loginForm.controls['phoneNumber'].invalid}">
+        <!-- ICON CHECK -->
+
+        <div class="col-2 d-flex align-items-center justify-content-center">
+            <span class="d-flex align-items-center" [ngClass]="{'text-green__default': !loginForm.controls['phoneNumber'].hasError('phone')&& !loginForm.controls['phoneNumber'].invalid,
+        'text-red__default': loginForm.controls['phoneNumber'].hasError('phone')}" [appMatIcon]="'phone'"></span>
+        </div>
+        <input type="text" formControlName="phoneNumber" class="col-10 h-100 rounded border-0 login"
+            autocomplete="off" autofocus maxlength="11" appNumberValue />
+    </div>
+    @if(loginForm.controls['phoneNumber'].hasError('phone') && (loginForm.controls['phoneNumber'].dirty ||
+    loginForm.controls['phoneNumber'].touched)){
+    <small class="col-12 mt-1 text-red__default text-right small-caption-medium">شماره موبایل معتبر نمی باشد</small>
+    }
+</div>
+
+    <button type="submit"
+        class="col-10 mt-3 rounded d-flex align-items-center justify-content-center text-white submit-btn"
+        [disabled]="loading">ورود</button>
+</form>
+<div class="col-12 d-flex justify-content-center">
+    <span class="col-10 text-center font-10">ورود شما به معنای پذیرش <a href=""> شرایط موسسه حقوقی ...</a> و <a href="">قوانین
+        حریم‌خصوصی </a> است</span>
+    </div>

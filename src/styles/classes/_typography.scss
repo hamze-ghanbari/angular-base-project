@@ -1,6 +1,14 @@
 
 @use "../abstracts/typography" as *;
 
+@each $key, $value in $fonts {
+
+    //   * Color Classes 
+    .font-#{"" + $key} {
+      font-size: #{"" + $value}px !important;
+    }
+}
+
 .hero-text {
   @include ESTEDAD_BOLD;
   font-size: 2.5rem;

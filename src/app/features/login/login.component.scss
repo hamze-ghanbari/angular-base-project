@@ -1,0 +1,30 @@
+.login-box {
+    height: fit-content;
+    min-height: 75%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 8px;
+}
+
+h1 {
+    height: fit-content;
+}
+
+.logo-box {
+    height: 150px;
+
+    div {
+        height: 120px;
+        border-radius: 8px 8px 0 0
+    }
+
+    img {
+        height: 150px;
+        width: 170px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        box-shadow: rgba(54, 54, 61, 0.2) 0px 7px 29px 0px;
+    }
+}

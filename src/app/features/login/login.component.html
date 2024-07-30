@@ -1,0 +1,26 @@
+<div class="col-12 vh-100 d-flex justify-content-center align-items-center">
+
+    <div class="login-box col-12 col-sm-6 col-md-3 d-flex flex-wrap justify-content-center">
+
+        <!-- <ng-container [@listShake]="phoneNumberEntered"> -->
+        <div class="position-relative col-12 logo-box">
+            <div class="col-12 bg-brown__default d-flex align-items-start justify-content-start">
+                @if(phoneNumberEntered){
+                <span (click)="back()" class="text-white pointer p-2" [appMatIcon]="'arrow_back'"></span>
+                }
+            </div>
+            <img [src]="logoSrc" class="rounded-circle" height="100%" />
+        </div>
+
+        <h3 class="col-12 pe-3 m-0 text-center title-3">{{title}}</h3>
+        @if(!phoneNumberEntered){
+        <app-login-presentation [loading]="loginLoading" (loginEmit)="login($event)"></app-login-presentation>
+        <!-- </ng-container> -->
+
+        }@else {
+        <app-otp-presentation [loading]="loginLoading" [phoneNumber]="this.phoneNumber" [otpSent]="otpSent" (confirmEmit)="confirm($event)" (resendCode)="resendCode()"></app-otp-presentation>
+        }
+
+    </div>
+
+</div>

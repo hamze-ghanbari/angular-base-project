@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UserService } from './user.service';
-import { createSpyObject, makeDependecy } from '@shared/spec/MockDependencies';
+import { createSpyObject, makeDependecy } from '@core/spec/MockDependencies';
 import { LocalRepository } from '@core/utils/local-repository';
 
 fdescribe('UserService', () => {

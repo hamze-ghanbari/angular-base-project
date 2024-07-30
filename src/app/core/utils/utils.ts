@@ -1,5 +1,5 @@
-export function parseJson(value: string): unknown | null {
-    let data: unknown;
+export function parseJson<T>(value: string): T | null {
+    let data: T;
     try {
         data = JSON.parse(value);
     } catch (e) {

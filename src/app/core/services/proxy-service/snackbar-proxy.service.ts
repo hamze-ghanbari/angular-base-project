@@ -9,7 +9,7 @@ import { MatSnackBarConfigType } from '@core/models/types/mat-snackbar-config';
 export class SnackbarProxyService {
 
   defaultConfig: MatSnackBarConfigType = {
-    verticalPosition: 'top', horizontalPosition: 'right', duration: 400000, direction: 'ltr'
+    verticalPosition: 'top', horizontalPosition: 'center', duration: 4000, direction: 'ltr'
   };
 
   constructor(

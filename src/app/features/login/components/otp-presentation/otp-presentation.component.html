@@ -1,0 +1,34 @@
+<form [formGroup]="otpForm" (ngSubmit)="confirm()" class="d-flex flex-wrap justify-content-center mb-2">
+    <label class="col-10 text-right small-caption-regular"><span>کد تایید برای شماره <span
+                class="small-copy-medium">{{phoneNumber}}</span> پیامک شد</span></label>
+    <div class="col-10 parent-input-box">
+        <div class="col-12 mt-2 border rounded input-box d-flex align-items-center"  [ngClass]="{'border-red__default': otpForm.controls['otp'].invalid && (otpForm.controls['otp'].dirty ||
+        otpForm.controls['otp'].touched),
+        'border-green__default': otpForm.controls['otp'].valid}">
+            <input type="text" formControlName="otp" class="col-12 h-100 rounded border-0 title-2 otp"
+                autocomplete="off" autofocus="true" maxlength="5" appNumberValue />
+        </div>
+        @if(otpForm.controls['otp'].invalid && (otpForm.controls['otp'].dirty ||
+        otpForm.controls['otp'].touched)){
+        <small class="col-12 mt-1 text-red__default text-right small-caption-medium">کد تایید باید 5 رقم و به صورت عدد باشد</small>
+        }
+    </div>
+
+    <div class="col-12 d-flex justify-content-center align-items-center caption-regular">
+
+        @if(showTimer){
+        <ng-container>
+             ثانیه مانده تا دریافت مجدد کد 
+            <span class="caption-medium px-1"> {{ timer$ | async }} </span>
+        </ng-container>
+        }@else {
+        <ng-container>
+            <a class="text-link__default pointer" (click)="resendOtpCode()">دریافت مجدد کد تایید</a>
+        </ng-container>
+        }
+    </div>
+
+    <button type="submit"
+        class="col-10 mt-3 rounded d-flex align-items-center justify-content-center text-white submit-btn"
+        [disabled]="loading">تایید</button>
+</form>

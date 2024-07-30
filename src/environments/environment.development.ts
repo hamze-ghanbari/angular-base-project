@@ -1,4 +1,5 @@
 export const environment = {
     production: false,
-    API_URL : 'https://jsonplaceholder.typicode.com'
+    API_URL : 'http://127.0.0.1:8000/api',
+    AUTH_URL: `http://127.0.0.1:8000/api`,
 };

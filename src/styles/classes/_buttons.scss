@@ -1,0 +1,41 @@
+@use '../abstracts/colors' as *;
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    border: 0;
+    outline: none;
+    height: 45px;
+    min-height: 45px;
+    max-height: 45px;
+
+    &:disabled {
+        opacity: 0.7;
+    }
+
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 8px;
+}
+
+$buttons : (
+    brown : white,
+    red : white,
+    green : black,
+    black : white
+);
+
+@each $key, $value in $buttons {
+    .btn-#{"" + $key} {
+        @extend .btn;
+        background-color: #{"" + setcolor($key)} !important;
+        color: #{"" + setcolor($value)} !important;
+    }
+}

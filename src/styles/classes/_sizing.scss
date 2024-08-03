@@ -1,0 +1,28 @@
+@use '../abstracts//sizing' as *;
+
+.h-fit {
+    height: fit-content !important;
+}
+.w-fit {
+    width: fit-content!important;
+}
+
+@each $key, $value in $sizes {
+    @media (min-width: 1200px) {
+        @include size($key, $value,'-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include size($key, $value,'-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include size($key, $value,'-md');
+    }
+
+    @media (min-width: 576px) {
+        @include size($key, $value,'-sm');
+    }
+
+    @include size($key, $value);
+}

@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, catchError, concatMap, filter, of, switchMap, take, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, concatMap, filter, of, switchMap, take, tap, throwError } from 'rxjs';
 import { SnackbarProxyService } from '@core/services/proxy-service/snackbar-proxy.service';
 import { UserService } from '@core/services/http-service/user.service';
 import { LoginService } from '@core/services/http-service/login.service';
@@ -23,9 +23,9 @@ export class AuthorizationInterceptor implements HttpInterceptor {
 
   }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      // let clone = request.clone({
-      //   url : request.url.substring(0, request.url.lastIndexOf('/'))
-      // })
+    // let clone = request.clone({
+    //   url : request.url.substring(0, request.url.lastIndexOf('/'))
+    // })
     return this.handleAuth(request).pipe(concatMap(req => next.handle(request)), catchError(error => {
       return this.handleError(request, next, error)
     }));
@@ -35,28 +35,32 @@ export class AuthorizationInterceptor implements HttpInterceptor {
     return of(this.addTokenToRequest(request, this.userService.userAccessToken()));
   }
 
-  private handleError(req: HttpRequest<any>, next: HttpHandler, errorResponse: any): Observable<HttpEvent<any>> {
-    if (errorResponse instanceof HttpErrorResponse) {
-      if (!this.isRefreshing) {
-        this.isRefreshing = true;
-        this.refreshTokenSubject.next(null);
-        return this.loginService.refreshToken().pipe(
-          switchMap((token: any) => {
-            this.isRefreshing = false;
-            this.refreshTokenSubject.next(token.access_token);
-            return next.handle(this.addTokenToRequest(req, token.access_token));
-          }));
+  private handleError(req: HttpRequest<any>, next: HttpHandler, error: any): Observable<HttpEvent<any>> {
+    if (error instanceof HttpErrorResponse) {
+      if (error.status == 401) {
+        if (!this.isRefreshing) {
+          this.isRefreshing = true;
+          this.refreshTokenSubject.next(null);
+          return this.loginService.refreshToken().pipe(
+            tap((token: any) => {
+              console.log('if token');
+              this.isRefreshing = false;
+              this.refreshTokenSubject.next(token.access_token);
+              return next.handle(this.addTokenToRequest(req, token.access_token));
+            }));
 
-      } else {
-        return this.refreshTokenSubject.pipe(
-          filter(token => token != null),
-          take(1),
-          switchMap(token => {
-            return next.handle(this.addTokenToRequest(req, token));
-          }));
+        } else {
+          return this.refreshTokenSubject.pipe(
+            filter(token => token != null),
+            take(1),
+            tap((token: any) => {
+              console.log('else token');
+              return next.handle(this.addTokenToRequest(req, token));
+            }));
+        }
       }
     }
-    return throwError(errorResponse);
+    return throwError(() => error);
   }
 
   redirectToLogin() {

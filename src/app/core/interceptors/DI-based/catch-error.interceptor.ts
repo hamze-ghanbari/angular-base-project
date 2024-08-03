@@ -80,6 +80,18 @@ function handleError(error: HttpErrorResponse, snackbar: SnackbarProxyService): 
           status: error.status
         },
       }));
+      // case 429:
+      //   snackbar.open(MESSAGES['HTTP_CODES']['429'], 'X', {
+      //     panelClass: 'snack-error'
+      //   });
+      //   return of(new HttpResponse({
+      //     body: {
+      //       hasError: true,
+      //       message: MESSAGES['HTTP_CODES']['429'],
+      //       result : null,
+      //       status: error.status
+      //     },
+      //   }));
     case 500:
       snackbar.open(MESSAGES['HTTP_CODES']['500'], 'X', {
         panelClass: 'snack-error'

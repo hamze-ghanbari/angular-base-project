@@ -1,0 +1,33 @@
+$display : none,
+block,
+inline,
+inline-block,
+flex,
+inline-flex;
+
+@mixin display($display, $grid: '') {
+    .d#{$grid}-#{$display} {
+        display: #{$display}!important;
+    }
+}
+
+@each $dis in $display {
+    @media (min-width: 1200px) {
+        @include display($dis, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include display($dis, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include display($dis, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include display($dis, '-sm');
+    }
+
+    @include display($dis);
+
+}

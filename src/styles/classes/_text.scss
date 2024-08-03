@@ -1,0 +1,32 @@
+$aligns-text : right, left, center, justify;
+
+@mixin text($align, $grid: ''){
+    .text#{$grid}-#{$align}{
+        text-align: #{$align}!important;
+    }
+}
+
+@each $align in $aligns-text{
+    @media (min-width: 1200px) {
+        @include text($align, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include text($align, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include text($align, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include text($align, '-sm');
+    }
+
+    @include text($align);
+
+}
+
+.v-align-center {
+    vertical-align: middle !important;
+}

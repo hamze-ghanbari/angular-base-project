@@ -1,0 +1,70 @@
+$numbers : (1: .25,
+    2: .5,
+    3: .75,
+    4: 1,
+    5: 1.25,
+    6: 1.5,
+    7: 1.75,
+    8: 2);
+
+    @mixin space($key, $value, $grid : ''){
+        .m#{$grid}-#{$key}{
+            margin: #{$value}rem!important;
+        }
+        
+    .mx#{$grid}-#{$key} {
+        margin-right : #{$value}rem!important;
+        margin-left : #{$value}rem!important;
+    }
+
+    .my#{$grid}-#{$key} {
+        margin-top : #{$value}rem!important;
+        margin-bottom : #{$value}rem!important;
+    }
+
+    .mt#{$grid}-#{$key} {
+        margin-top : #{$value}rem!important;
+    }
+
+    .mb#{$grid}-#{$key} {
+        margin-bottom : #{$value}rem!important;
+    }
+
+    .me#{$grid}-#{$key} {
+        margin-right : #{$value}rem!important;
+    }
+
+    .ms#{$grid}-#{$key} {
+        margin-left : #{$value}rem!important;
+    }
+
+    .p#{$grid}-#{$key} {
+        margin : #{$value}rem!important;
+    }
+
+    .px#{$grid}-#{$key} {
+        margin-right : #{$value}rem!important;
+        margin-left : #{$value}rem!important;
+    }
+
+    .py#{$grid}-#{$key} {
+        margin-top : #{$value}rem!important;
+        margin-bottom : #{$value}rem!important;
+    }
+
+    .pt#{$grid}-#{$key} {
+        margin-top : #{$value}rem!important;
+    }
+
+    .pb#{$grid}-#{$key} {
+        margin-bottom : #{$value}rem!important;
+    }
+
+    .pe#{$grid}-#{$key} {
+        margin-right : #{$value}rem!important;
+    }
+
+    .ps#{$grid}-#{$key} {
+        margin-left : #{$value}rem!important;
+    }
+    }

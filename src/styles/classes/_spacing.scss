@@ -1,0 +1,26 @@
+@use '../abstracts//spacing' as *;
+
+.m-auto {
+    margin: auto!important;
+}
+
+@each $key, $value in $numbers {
+    @media (min-width: 1200px) {
+        @include space($key, $value,'-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include space($key, $value,'-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include space($key, $value,'-md');
+    }
+
+    @media (min-width: 576px) {
+        @include space($key, $value,'-sm');
+    }
+
+    @include space($key, $value);
+
+}

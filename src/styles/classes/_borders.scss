@@ -1,0 +1,45 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/borders' as *;
+
+
+@each $style in $border-styles {
+    .border-#{$style} {
+        border: 1px #{$style} setcolor(white, 'shade-1') !important;
+    }
+
+    .border-#{$style}-2 {
+        border: 2px #{$style} setcolor(white, 'shade-1') !important;
+    }
+}
+
+@each $i in $rounded-numbers {
+    @media (min-width: 1200px) {
+        @include rounded($i, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include rounded($i, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include rounded($i, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include rounded($i, '-sm');
+    }
+
+    @include rounded($i);
+}
+
+.border-transparent {
+    border: 1px solid transparent !important;
+}
+
+.border-none {
+    border: none !important;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}

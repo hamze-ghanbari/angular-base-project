@@ -51,7 +51,7 @@ export class LoginService extends HttpProxyService {
 
 
   //? Refresh Token
-  public refreshToken(): Observable<IServiceResult<ILogin>> {
+   refreshToken(): Observable<IServiceResult<ILogin>> {
     const rft = this.repository.getItem(this.config['refreshTokenKey']);
     const httpOptions = {
       headers: new HttpHeaders({

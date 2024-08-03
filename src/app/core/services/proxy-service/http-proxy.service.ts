@@ -46,6 +46,14 @@ export abstract class HttpProxyService {
           });
         }
       }),
+      tap(res => {
+        console.log('res proxy', res);
+        if(res.hasError && res.status == 429){
+          this._snackBar.open(`لطفا ${res.result.time / 1000} ثانیه دیگر مجددا تلاش کنید`, 'X', {
+            panelClass: 'snack-info'
+          })
+        }
+      }),
       takeUntil(untilDestroyed(this.destroyRef))
     );
   }

@@ -1,106 +1,25 @@
-
 @use "../abstracts/typography" as *;
 
-@each $key, $value in $fonts {
 
-    //   * Color Classes 
-    .font-#{"" + $key} {
-      font-size: #{"" + $value}px !important;
+
+@each $type, $value in $fonts {
+  @each $key in $value {
+    @media (min-width: 1200px) {
+      @include font($type, $key, '-xl');
     }
-}
 
-.hero-text {
-  @include ESTEDAD_BOLD;
-  font-size: 2.5rem;
-  line-height: 1.5;
-}
+    @media (min-width: 992px) {
+      @include font($type, $key, '-lg');
+    }
 
-.title-1 {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 2rem;
-  line-height: 1.5;
-}
+    @media (min-width: 768px) {
+      @include font($type, $key, '-md');
+    }
 
-.title-2 {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 1.5rem;
-  line-height: 1.5;
-}
+    @media (min-width: 576px) {
+      @include font($type, $key, '-sm');
+    }
 
-.title-3 {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-
-.body-copy-strong {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 1rem;
-  line-height: 2;
-}
-
-.body-copy-medium {
-  @include ESTEDAD_MEDIUM;
-  font-size: 1rem;
-  line-height: 2;
-}
-
-.body-copy-regular {
-  @include ESTEDAD_REGULAR;
-  font-size: 1rem;
-  line-height: 2;
-}
-
-.small-copy-strong {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 0.875rem;
-  line-height: 2;
-}
-
-.small-copy-medium {
-  @include ESTEDAD_MEDIUM;
-  font-size: 0.875rem;
-  line-height: 2;
-}
-
-.small-copy-regular {
-  @include ESTEDAD_REGULAR;
-  font-size: 0.875rem;
-  line-height: 2;
-}
-
-.caption-strong {
-  @include ESTEDAD_SEMI_BOLD;
-  font-size: 0.75rem;
-  line-height: 2;
-}
-
-.caption-medium {
-  @include ESTEDAD_MEDIUM;
-  font-size: 0.75rem;
-  line-height: 2;
-}
-
-.caption-regular {
-  @include ESTEDAD_REGULAR;
-  font-size: 0.75rem;
-  line-height: 2;
-}
-
-.small-caption-medium {
-  @include ESTEDAD_MEDIUM;
-  font-size: 0.67rem;
-  line-height: 2;
-}
-
-.small-caption-regular {
-  @include ESTEDAD_REGULAR;
-  font-size: 0.67rem;
-  line-height: 2;
-}
-
-.text-button {
-  @include ESTEDAD_MEDIUM;
-  font-size: 0.875rem;
-  line-height: 2;
+    @include font($type, $key);
+  }
 }

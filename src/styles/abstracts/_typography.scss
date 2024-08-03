@@ -30,22 +30,50 @@
   font-family: ESTEDAD_BOLD !important;
 }
 
-// ? Semi Bold
-@font-face {
-  font-family: ESTEDAD_SEMI_BOLD;
-  src: url("../../assets/fonts/Estedad-SemiBold.woff2") format("woff2");
-  font-display: swap;
-}
+// // ? Semi Bold
+// @font-face {
+//   font-family: ESTEDAD_SEMI_BOLD;
+//   src: url("../../assets/fonts/Estedad-SemiBold.woff2") format("woff2");
+//   font-display: swap;
+// }
 
-@mixin ESTEDAD_SEMI_BOLD {
-  font-family: ESTEDAD_SEMI_BOLD !important;
-}
+// @mixin ESTEDAD_SEMI_BOLD {
+//   font-family: ESTEDAD_SEMI_BOLD !important;
+// }
 
-$fonts: (
-  8: '8',
-  9: '9',
-  10: '10',
-  11: '11',
-  12: '12',
-  13: '13',
-  )
+$font-size : 8,
+10,
+12,
+13,
+14,
+18,
+20,
+50;
+$fonts : (regular : $font-size,
+  medium : $font-size,
+  bold : $font-size);
+
+@mixin font($type, $key, $grid: '') {
+  $line : 1.5;
+
+  @if($key > 20) {
+    $line : 1;
+  }
+
+  .font#{$grid}-#{$type}-#{$key} {
+    @if($type ==medium) {
+      @include ESTEDAD_MEDIUM;
+    }
+
+    @else if($type ==bold) {
+      @include ESTEDAD_BOLD;
+    }
+
+    @else {
+      @include ESTEDAD_REGULAR;
+    }
+
+    font-size: #{$key}px !important;
+    line-height: #{$line} !important;
+  }
+}

@@ -1,6 +1,7 @@
 import { isPlatformBrowser } from "@angular/common";
 import { Injectable, Inject, PLATFORM_ID, InjectionToken } from "@angular/core";
 import { BasePlatFormBrowser } from "./platform-browser";
+import { localStorageSupported } from "./utils";
 
 @Injectable(
     {
@@ -12,7 +13,7 @@ export class LocalRepository extends BasePlatFormBrowser {
 
     constructor() {
         super();
-        this.isLocalStorageSupported = typeof Storage !== undefined;
+        this.isLocalStorageSupported = localStorageSupported();
     }
 
     private localSupported(): boolean{

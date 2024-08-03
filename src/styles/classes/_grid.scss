@@ -1,0 +1,23 @@
+@use '../abstracts/grid' as *;
+
+@each $key, $value in $cols {
+    
+    @media (min-width: 1200px) {
+        @include col($key, $value, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include col($key, $value, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include col($key, $value, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include col($key, $value, '-sm');
+    }
+
+    @include col($key, $value);
+
+}

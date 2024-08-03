@@ -1,0 +1,94 @@
+@use '../abstracts/flex' as *;
+
+@each $dir in $directions {    
+    @media (min-width: 1200px) {
+        @include direction($dir, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include direction($dir, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include direction($dir, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include direction($dir, '-sm');
+    }
+
+    @include direction($dir);
+}
+
+@each $value in $wraps {
+    @media (min-width: 1200px) {
+        @include wrap($value, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include wrap($value, '-lg');
+    }
+
+    @media (min-width: 768px) {
+        @include wrap($value, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include wrap($value, '-sm');
+    }
+
+    @include wrap($value);
+}
+
+@each $key, $value in $aligns {
+    @media (min-width: 1200px) {
+        @include align-flex($key, $value, '-xl');
+    }
+    
+    @media (min-width: 992px) {
+        @include align-flex($key, $value, '-lg');
+    }
+    
+    @media (min-width: 768px) {
+        @include align-flex($key, $value, '-md');
+    }
+
+    @media (min-width: 576px) {
+        @include align-flex($key, $value, '-sm');
+    }
+    
+    @include align-flex($key, $value);
+}
+
+@each $key, $value in $justifies {
+    
+    @media (min-width: 1200px) {
+        @include justify-flex($key, $value, '-xl');
+    }
+
+    @media (min-width: 992px) {
+        @include justify-flex($key, $value, '-lg');
+    }
+    
+    @media (min-width: 768px) {
+        @include justify-flex($key, $value, '-md');
+    }
+    
+    @media (min-width: 576px) {
+        @include justify-flex($key, $value, '-sm');
+    }
+
+    @include justify-flex($key, $value);
+}
+
+.flex-items-center {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-content-center {
+    @extend .flex-items-center;
+    align-content: center !important;
+}

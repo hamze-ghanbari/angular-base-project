@@ -1,0 +1,49 @@
+$directions: row, column;
+
+$wraps: wrap, nowrap;
+
+$aligns: (
+    start : flex-start,
+    end : flex-end,
+    center : center,
+    baseline : baseline,
+    stretch : stretch
+);
+
+
+$justifies: (
+    start : flex-start,
+    end : flex-end,
+    center : center,
+    between : space-between,
+    around : space-around
+);
+
+@mixin justify-flex($key, $value, $grid : '') {
+    .justify-content#{$grid}-#{$key} {
+        justify-content: #{$value}!important;
+    }
+}
+
+@mixin align-flex($key, $value, $grid : ''){
+    .align-content#{$grid}-#{$key} {
+        align-content: #{$value}!important;
+    }
+
+    .align-items#{$grid}-#{$key} {
+        align-items: #{$value}!important;
+    }
+}
+
+
+@mixin direction($dir, $grid: ''){
+    .flex#{$grid}-#{$dir} {
+        flex-direction: $dir !important;
+    }
+}
+
+@mixin wrap($value, $grid : ''){
+    .flex#{$grid}-#{$value} {
+        flex-wrap: $value!important;
+    }
+}

@@ -1,14 +1,13 @@
 // ? Color Map
 $colors: (
-  brown: (
-    default: #4e2406
-    ),
-  red: (
-    default: red
-    ),
-     green: (
-      default: green
-      ),
+  brown: (default: #4e2406,
+  shade-1: #68330d38,
+  shade-2: #68330d),
+  red: (default: red),
+  green: (default: green),
+  white: (default: white,
+  shade-1 : #dee2e6 ),
+  black: (default : black),
   primary:(default: #2bae66,
     hover: #69da9c,
     active: #20834d,
@@ -44,17 +43,6 @@ $colors: (
     tint-9: #2eb1ff,
     tint-10: #17a9ff,
   ),
-  black:(shade-1: #e7ebee,
-    shade-2: #ced3d7,
-    shade-3: #b7bdc1,
-    shade-4: #9fa6ab,
-    shade-5: #878f95,
-    shade-6: #6f797f,
-    shade-7: #576269,
-    shade-8: #404c53,
-    shade-9: #26343c,
-    shade-10: #0f1e27,
-  ),
   surface:(shallow: #f2f5f8,
     white: #fff,
     deep: #03121b,
@@ -71,4 +59,18 @@ $colors: (
 
 @function setcolor($colorName, $shade: default) {
   @return map-get(map-get($colors, $colorName), $shade);
+}
+
+@mixin color($color, $shade, $value, $grid: '') {
+  .text#{$grid}-#{"" + $color}__#{"" + $shade} {
+    color: #{"" + $value} !important;
+  }
+
+  .bg#{$grid}-#{"" + $color}__#{"" + $shade} {
+    background-color: #{"" + $value} !important;
+  }
+
+  .border#{$grid}-#{"" + $color}__#{"" + $shade} {
+    border-color: #{"" + $value} !important;
+  }
 }

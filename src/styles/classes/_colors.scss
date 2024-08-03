@@ -1,21 +1,23 @@
 @use '../abstracts/colors' as *;
 
-// ? loop over colors maps and create class from it
 @each $color, $shades in $colors {
   @each $shade, $value in $shades {
-
-    //   * Color Classes 
-    .text-#{"" + $color}__#{"" + $shade} {
-      color: #{"" + $value} !important;
+    @media (min-width: 1200px) {
+      @include color($color, $shade, $value, '-xl');
     }
 
-    //   * Background Classes
-    .bg-#{"" + $color}__#{"" + $shade} {
-      background-color: #{"" + $value} !important;
+    @media (min-width: 992px) {
+      @include color($color, $shade, $value, '-lg');
     }
 
-    .border-#{"" + $color}__#{"" + $shade} {
-      border-color: #{"" + $value} !important;
+    @media (min-width: 768px) {
+      @include color($color, $shade, $value, '-md');
     }
+
+    @media (min-width: 576px) {
+      @include color($color, $shade, $value, '-sm');
+    }
+
+    @include color($color, $shade, $value);
   }
 }

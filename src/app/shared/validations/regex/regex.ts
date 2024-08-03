@@ -11,3 +11,7 @@ export const faAlphaRegex = /^[ضصثقفغعهخحجچشسیبلاتنمکگپ�
 export const enAlphaRegex = /^[a-zA-Z ?><;,{}[\]\-_+=!@#$%\^&*|']*$/i;
 
 export const scriptRegex = /<[\b]?[^>]*>[\s\S]*?<\/[\b]?[^>]*>/ig;
+
+export const imageRegex = /\/(jpe?g|tiff?|png|webp|bmp)$/i;
+
+export const wordRegex = /\.docx$/i;

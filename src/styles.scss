@@ -43,13 +43,15 @@ mat-card-title {
 }
 
 * {
+
   &:focus,
   &:focus-visible {
     outline: none;
   }
+
   box-sizing: border-box;
   caret-color: setcolor(brown);
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 
 ::placeholder {
@@ -57,10 +59,22 @@ mat-card-title {
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; @include ESTEDAD_REGULAR; }
+html,
+body {
+  height: 100%;
+}
 
-h1,h2,h3,h4,h5,h6{
+body {
+  margin: 0;
+  @include ESTEDAD_REGULAR;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   height: fit-content;
 }
 
@@ -68,6 +82,29 @@ h1,h2,h3,h4,h5,h6{
   cursor: pointer;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll !important;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll !important;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
 
 .input-box {
   border: 1px solid transparent;
@@ -75,4 +112,3 @@ h1,h2,h3,h4,h5,h6{
   min-height: 45px;
   max-height: 45px;
 }
-

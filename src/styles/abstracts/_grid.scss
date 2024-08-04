@@ -16,6 +16,7 @@ $cols: (
 @mixin col($key, $value, $grid: '') {
     .col#{$grid}-#{$key} {
         flex: 0 0 auto!important;
+        width: $value!important;
         max-width: $value!important;
     }
 }

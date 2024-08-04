@@ -8,6 +8,10 @@ $colors: (
   white: (default: white,
   shade-1 : #dee2e6 ),
   black: (default : black),
+  gray: (
+    default : gray,
+    shade-1: lightgray
+  ),
   primary:(default: #2bae66,
     hover: #69da9c,
     active: #20834d,

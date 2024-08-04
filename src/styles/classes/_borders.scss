@@ -1,6 +1,17 @@
 @use '../abstracts/colors' as *;
 @use '../abstracts/borders' as *;
 
+@each $type in $borders-type {
+    @each $style in $border-styles {
+        .border-#{$type}-#{$style} {
+            border-#{$type}: 1px #{$style} setcolor(white, 'shade-1') !important;
+        }
+
+        .border-#{$type}-#{$style}-2 {
+            border-#{$type}: 2px #{$style} setcolor(white, 'shade-1') !important;
+        }
+    }
+}
 
 @each $style in $border-styles {
     .border-#{$style} {

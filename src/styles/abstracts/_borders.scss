@@ -2,6 +2,8 @@ $border-styles : solid,
 dashed,
 dotted;
 
+$borders-type : top, bottom, left, right;
+
 @mixin rounded($i, $grid: '') {
     .rounded#{$grid}-#{$i} {
         border-radius: #{$i}px !important;

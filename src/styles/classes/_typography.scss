@@ -1,13 +1,11 @@
 @use "../abstracts/typography" as *;
 
-
-
 @each $type, $value in $fonts {
   @each $key in $value {
     @media (min-width: 1200px) {
       @include font($type, $key, '-xl');
     }
-
+    
     @media (min-width: 992px) {
       @include font($type, $key, '-lg');
     }
@@ -23,3 +21,11 @@
     @include font($type, $key);
   }
 }
+  
+  .bold{
+    font-weight: bold!important;
+  }
+  
+  .line-height-2{
+    line-height: 2!important;
+  }

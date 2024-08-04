@@ -8,7 +8,7 @@ export abstract class BasePlatFormBrowser {
         this.isBrowser = isPlatformBrowser(this.platformId);
     }
 
-    protected get isInBrowser(): boolean {
+     get isInBrowser(): boolean {
         return this.isBrowser;
     }
 

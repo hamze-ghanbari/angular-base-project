@@ -14,17 +14,24 @@ export class WindowRepository extends BasePlatFormBrowser {
         super();
     }
 
-    forward(): void{
-        if(this.isInBrowser){
+    forward(): void {
+        if (this.isInBrowser) {
             this.location.forward();
         }
     }
 
-    back(): void{
-        if(this.isInBrowser){
+    back(): void {
+        if (this.isInBrowser) {
             this.location.back();
         }
     }
+
+    reload(): void {
+        if(this.isInBrowser){
+            window.location.reload();
+        }
+    }
+
 
     isOnline(): boolean | undefined {
         if (this.isInBrowser)
